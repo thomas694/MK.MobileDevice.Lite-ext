@@ -82,7 +82,7 @@ namespace MK.MobileDevice.Lite
             uint total = 0;
             uint len = 0;
 
-            using (var ms = new MemoryStream())
+            using (var ms = new MemoryStream((int)fileSize))
             {
                 while (total < fileSize)
                 {
@@ -96,7 +96,7 @@ namespace MK.MobileDevice.Lite
                     total += len;
                 }
 
-                return ms.ToArray();
+                return ms.GetBuffer();
             }
         }
 
